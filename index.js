@@ -299,6 +299,7 @@ console.log(noCacheCalcFac(8))
 console.log(noCacheCalcFac(8))
 console.log(noCacheCalcFac(8))
 console.timeEnd("not memoized factorial");
+//1.338ms
 
 console.time("memoized factorial");
 console.log(myFac.calcFac(8))
@@ -306,6 +307,7 @@ console.log(myFac.calcFac(8))
 console.log(myFac.calcFac(8))
 console.log(myFac.calcFac(8))
 console.timeEnd("memoized factorial");
+//0.577ms
 
 // 13) Memoization Challenge
 /*
@@ -317,7 +319,23 @@ console.timeEnd("memoized factorial");
   we've covered or come up with your own)
 */
 
-// CODE HERE
+class Tipper{
+  constructor(){
+    this.cache = {}
+  }
+  tipAmt(num){
+    if(this.cache[num]){
+        console.log('Fetching from cache')
+      return this.cache[num]
+  } else {
+      console.log('Calculating Result')
+      let tipAnswer = num * 0.15
+      this.cache[num] = tipAnswer
+      return tipAnswer
+}}}
+
+// let tipCalc = new Tipper
+// console.log(tipCalc.tipAmt(10))
 
 /*
     Copy and paste the method outside the class and
@@ -325,29 +343,33 @@ console.timeEnd("memoized factorial");
     to the cache)
 */
 
-// CODE HERE 
+function tipAmt(num){
+    return num * 0.15
+}
 
 /*
     Before you see how much time they take, make a 
     guess as to if one will be faster.
 */
 
-// ANSWER: 
+// ANSWER: I think the function without the cache will be faster
 
 // Now fill this out and run your file
 
-// CREATE A NEW INSTANCE OF YOUR CLASS
+let tipCalc = new Tipper
 
 console.time("not memoized function time");
-console.log(/* CALL YOUR NONCACHE FN*/)
-console.log(/* CALL YOUR NONCACHE FN*/)
-console.log(/* CALL YOUR NONCACHE FN*/)
-console.log(/* CALL YOUR NONCACHE FN*/)
+console.log(tipAmt(10))
+console.log(tipAmt(10))
+console.log(tipAmt(10))
+console.log(tipAmt(10))
 console.timeEnd("not memoized function time");
+//0.168ms
 
 console.time("memoized function time");
-console.log(/* CALL THE METHOD FROM YOUR CLASS*/)
-console.log(/* CALL THE METHOD FROM YOUR CLASS*/)
-console.log(/* CALL THE METHOD FROM YOUR CLASS*/)
-console.log(/* CALL THE METHOD FROM YOUR CLASS*/)
+console.log(tipCalc.tipAmt(10))
+console.log(tipCalc.tipAmt(10))
+console.log(tipCalc.tipAmt(10))
+console.log(tipCalc.tipAmt(10))
 console.timeEnd("memoized function time");
+//0.29ms
