@@ -59,7 +59,7 @@ function printC(num, arr) {
   }
 }
 // Q: What is the space complexity of the function?
-// ANSWER: Linear Space O(n)  **COME BACK**
+// ANSWER: Quadratic Space O(n^2)
 
 
 // 6) -------------------------------------------------------
@@ -109,7 +109,7 @@ function arrInception(parentArr) {
   }
 }
 // Q: What is the space complexity of this function?
-// ANSWER:
+// ANSWER: Linear Space O(n)
 
 
 // 10) You are challenged to find the squared value of each number in an array. This is not the best solution, but it is what you come up with anyway...
@@ -131,7 +131,7 @@ function getNumbersSquared(numbers) {
 
 
 // Q: Is it possible to improve this function's space complexity? If it is, write a new function below.
-// ANSWER: 
+// ANSWER: Still Linear but without the copy of the array.
 let answer = numbers.map((num) => {
   return num * num })
 
